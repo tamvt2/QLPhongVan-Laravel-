@@ -13,7 +13,8 @@ class InterviewService {
 
             Session::flash('success', 'Tạo Người Phỏng Vấn Thanh Công');
         } catch (\Exception $e) {
-            Session::flash('error', $e->getMessage());
+            Session::flash('error', 'Tạo Người Phỏng Vấn thất bại');
+            Log::info($e->getMessage());
             return false;
         }
         return true;
@@ -45,5 +46,14 @@ class InterviewService {
             return Interview::where('id', $id)->delete();
         }
         return false;
+    }
+
+    public static function getName($id) {
+        $values = Interview::select('name')->where('id', $id)->get();
+        $html = '';
+        foreach ($values as $value) {
+            $html .= $value->name;
+        }
+        return $html;
     }
 }

@@ -15,13 +15,17 @@
         </ul>
 
         <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="logout" role="button">
-                    Đăng xuất
-                </a>
-            </li>
-        </ul>
+        
+        <div class="card-body">
+            <div class="col-md-1.5 float-right">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="nav-link" data-widget="fullscreen" href="logout" role="button">
+                        Đăng xuất
+                    </a>
+                </form>
+            </div>
+        </div> 
     </nav>
     <!-- /.navbar -->
 

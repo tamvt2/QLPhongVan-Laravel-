@@ -23,7 +23,7 @@ class SignUpController extends Controller
 
         auth()->login($user);
 
-        return redirect('/')->with('success', "Account successfully registered.");
+        return redirect('user')->with('success', "Account successfully registered.");
     }
 
     public function store(Request $request){

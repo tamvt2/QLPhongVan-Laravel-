@@ -13,7 +13,8 @@ class CategoryService {
 
             Session::flash('success', 'Tạo Category Thanh Công');
         } catch (\Exception $e) {
-            Session::flash('error', $e->getMessage());
+            Session::flash('error', 'Tạo Category thất bại');
+            Log::info($e->getMessage());
             return false;
         }
         return true;

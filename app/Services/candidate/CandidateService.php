@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class CandidateService {
+    
     public function getCate() {
         return Category::select('id', 'category')->get();
     }
@@ -24,9 +25,10 @@ class CandidateService {
                 'interview_date' => $request->input('interview_date')
             ]);
 
-            Session::flash('success', 'Tạo Danh Mục Thanh Công');
+            Session::flash('success', 'Thêm Ứng Viên Thanh Công');
         } catch (\Exception $e) {
-            Session::flash('error', $e->getMessage());
+            Session::flash('error', 'Thêm Ứng Viên thất bại');
+            Log::info($e->getMessage());
             return false;
         }
         return true;
@@ -72,5 +74,27 @@ class CandidateService {
             return Candidate::where('id', $id)->delete();
         }
         return false;
+    }
+
+    public function getList() {
+        return Candidate::orderBy('interview_date', 'asc')->paginate(15);
+    }
+
+    public static function getName($id) {
+        $values = Candidate::select('name')->where('id', $id)->get();
+        $html = '';
+        foreach ($values as $value) {
+            $html .= $value->name;
+        }
+        return $html;
+    }
+
+    public static function getNameCate($id) {
+        $values = Candidate::select('category_id')->where('id', $id)->get();
+        $category_id = '';
+        foreach ($values as $value) {
+            $category_id .= $value->category_id;
+        }
+        return CandidateService::get($category_id);
     }
 }

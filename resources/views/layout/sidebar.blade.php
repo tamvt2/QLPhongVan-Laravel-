@@ -107,13 +107,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/customers" class="nav-link">
+                            <a href="/users/question/add" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm Câu Hỏi Phỏng Vấn</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/customers" class="nav-link">
+                            <a href="/users/question/list" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh Sách Câu Hỏi Phỏng Vấn</p>
                             </a>
@@ -121,13 +121,13 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/customers" class="nav-link">
+                    <a href="/users/setup/add" class="nav-link">
                         <i class="fas fa-user-cog"></i>
                         <p>Setup Câu Hỏi</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/customers" class="nav-link">
+                    <a href="/users/listusers/list" class="nav-link">
                     <i class="fas fa-list-ol"></i>
                         <p>Danh Sách Phỏng Vấn</p>
                     </a>
