@@ -32,5 +32,8 @@ class ListusersController extends Controller
         ]);
     }
 
-    
+    public function insert(Request $request) {
+        $this->setup->insert($request);
+        return redirect()->back();
+    }
 }

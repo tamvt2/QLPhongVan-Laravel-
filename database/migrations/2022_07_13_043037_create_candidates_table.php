@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('age');
             $table->integer('phone');
             $table->string('address');
-            $table->integer('category_id');
+            $table->foreignId('category_id')->constrained();
             $table->string('experince');
             $table->date('interview_date');
             $table->timestamps();

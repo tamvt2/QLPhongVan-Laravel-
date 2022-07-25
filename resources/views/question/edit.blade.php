@@ -14,9 +14,9 @@
             <div class="form-group">
                 <label>Category</label>
                 <select name="category_id" class="form-control">
-                    <option value="0" {{ $value->category_id == 0 ? 'selected' : '' }}>Category</option>
+                    <option value="0" {{ $categories->category_id == 0 ? 'selected' : '' }}>Category</option>
                     @foreach($values as $key => $valu)
-                        <option value="{{ $valu->id }}" {{ $value->category_id == $valu->id ? 'selected' : '' }}>
+                        <option value="{{ $valu->id }}" {{ $categories->category_id == $valu->id ? 'selected' : '' }}>
                             {{ $valu->category }}</option>
                     @endforeach
                 </select>
@@ -25,7 +25,7 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Chỉnh Sửa Người Phỏng Vấn</button>
+            <button type="submit" class="btn btn-primary">Chỉnh Sửa Câu Hỏi Phỏng Vấn</button>
         </div>
         @csrf
     </form>

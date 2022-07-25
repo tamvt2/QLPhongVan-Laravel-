@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
 Route::get('register', [SignUpController::class, 'index']);
-Route::post('register', [SignUpController::class, 'store']);
+Route::post('register', [SignUpController::class, 'register']);
 
 
 Route::middleware(['auth'])->group(function() {
@@ -70,8 +70,8 @@ Route::middleware(['auth'])->group(function() {
             Route::get('add', [QuestionController::class, 'create']);
             Route::post('add', [QuestionController::class, 'store']);
             Route::get('list', [QuestionController::class, 'index']);
-            Route::get('edit/{question}', [QuestionController::class, 'show']);
-            Route::post('edit/{question}', [QuestionController::class, 'update']);
+            Route::get('edit/{question}/{id}', [QuestionController::class, 'show']);
+            Route::post('edit/{question}/{id}', [QuestionController::class, 'update']);
             Route::DELETE('destroy', [QuestionController::class, 'destroy']);
             Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
         });
@@ -88,7 +88,7 @@ Route::middleware(['auth'])->group(function() {
         Route::prefix('listusers')->group(function() {
             Route::get('list', [ListusersController::class, 'index'])->name('user');
             Route::get('add/{id}', [ListusersController::class, 'show']);
-            Route::post('add', [ListusersController::class, 'load']);
+            Route::post('insert', [ListusersController::class, 'insert']);
             Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
         });
     });

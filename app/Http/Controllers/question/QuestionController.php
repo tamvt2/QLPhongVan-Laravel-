@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\question;
 
 use App\Http\Controllers\Controller;
+use App\Models\ID;
 use App\Models\Question;
 use App\Services\question\QuestionService;
 use Illuminate\Http\Request;
@@ -34,16 +35,17 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function show(Question $question) {
+    public function show(Question $question, ID $id) {
         return view('question.edit', [
             'title' => 'Chỉnh Sửa Câu Hỏi',
+            'categories' => $id,
             'value' => $question,
             'values' => $this->question->getCate()
         ]);
     }
 
-    public function update(Request $request, Question $question) {
-        $result = $this->question->update($request, $question);
+    public function update(Request $request, Question $question, ID $id) {
+        $result = $this->question->update($request, $question, $id);
         if ($result) {
             return redirect('/users/question/list');
         }

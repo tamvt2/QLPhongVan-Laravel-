@@ -88,19 +88,17 @@ $('.add-question').on('click', function() {
     n++;
 });
 
-$('div.remove').unbind('click', 'select.question').on('click', function() {
-    console.log(1);
-});
-
 function remove(e) {
     var id = $(e).parent().attr('id');
     $(`#${id}`).empty();
 }
 
 var pageURL = $(location).attr("href");
+console.log(pageURL);
 for (var i = 1; i <= 20; i++) {
     if (pageURL == `http://127.0.0.1:8000/users/listusers/add/${i}`) {
         for (var j = 1; j < 11; j++) {
+            console.log($(`.question_id_${j} :selected`).val());
             if ($(`.question_id_${j} :selected`).val() == '') {
                 $(`.question_id_${j}`).empty();
                 $(`.answer_${j}`).empty();
