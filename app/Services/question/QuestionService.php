@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class QuestionService {
     public function getCate() {
-        return Category::select('categories.id as id', 'categories.category as category')->join('i_d_s', 'i_d_s.category_id', '=', 'categories.id')->distinct()->get();
+        return Category::select('categories.id as id', 'categories.category as category')->get();
     }
 
     public function create($request) {

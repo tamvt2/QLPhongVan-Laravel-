@@ -68,7 +68,7 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Thêm Ứng Viên</button>
+            <button type="submit" class="btn btn-primary">Setup</button>
         </div>
         @csrf
     </form>

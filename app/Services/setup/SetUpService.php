@@ -27,7 +27,7 @@ class SetUpService {
                 $question_id = $request->input('question_id_'.$i);
                 if ($question_id != '') {
                     $i_d_s_id = IDService::getID($question_id);
-                    IDService::create($setup_id, $i_d_s_id);
+                    IDService::insert($setup_id, $i_d_s_id);
                 }
             }
             Session::flash('success', 'Setup Câu Hỏi Thanh Công');
