@@ -2,14 +2,14 @@
 
 namespace App\Services\interview;
 
-use App\Models\Interview;
+use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class InterviewService {
     public function create($request) {
         try {
-            Interview::create($request->input());
+            User::create($request->input());
 
             Session::flash('success', 'Tạo Người Phỏng Vấn Thanh Công');
         } catch (\Exception $e) {
@@ -21,15 +21,16 @@ class InterviewService {
     }
 
     public function getAll() {
-        return interview::orderBy('id', 'asc')->paginate(15);
+        return User::orderBy('id', 'asc')->paginate(15);
     }
 
-    public function update($request, $interview) {
+    public function update($request, $user) {
         try {
-            $interview->fill(['name' => $request->input('name'),
-                            'job' => $request->input('job')
-                        ]);
-            $interview->save();
+            $user->fill([
+                'name' => $request->input('name'),
+                'email' => $request->input('email')
+            ]);
+            $user->save();
             Session::flash('success', 'Cập nhật Người Phỏng Vấn thành công');
         } catch (\Exception $e) {
             Session::flash('error', 'Cập nhật Người Phỏng Vấn thất bại');
@@ -41,15 +42,15 @@ class InterviewService {
 
     public function destroy($request) {
         $id = $request->input('id');
-        $value = Interview::where('id', $id)->first();
+        $value = User::where('id', $id)->first();
         if ($value) {
-            return Interview::where('id', $id)->delete();
+            return User::where('id', $id)->delete();
         }
         return false;
     }
 
     public static function getName($id) {
-        $values = Interview::select('name')->where('id', $id)->get();
+        $values = User::select('name')->where('id', $id)->get();
         $html = '';
         foreach ($values as $value) {
             $html .= $value->name;

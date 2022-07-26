@@ -37,8 +37,8 @@ Route::middleware(['auth'])->group(function() {
             Route::get('add', [InterviewerController::class, 'create']);
             Route::post('add', [InterviewerController::class, 'store']);
             Route::get('list', [InterviewerController::class, 'index']);
-            Route::get('edit/{interview}', [InterviewerController::class, 'show']);
-            Route::post('edit/{interview}', [InterviewerController::class, 'update']);
+            Route::get('edit/{user}', [InterviewerController::class, 'show']);
+            Route::post('edit/{user}', [InterviewerController::class, 'update']);
             Route::DELETE('destroy', [InterviewerController::class, 'destroy']);
             Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
         });

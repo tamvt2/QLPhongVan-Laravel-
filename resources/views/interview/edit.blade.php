@@ -12,8 +12,8 @@
                 <input type="text" name="name" class="form-control" placeholder="Nhập tên người phỏng vấn" value="{{ $value->name }}">
             </div>
             <div class="form-group">
-                <label>Chức Vụ Người Phỏng Vấn</label>
-                <input type="text" name="job" class="form-control" placeholder="Nhập chức vụ người phỏng vấn" value="{{ $value->job }}">
+                <label>Email Người Phỏng Vấn</label>
+                <input type="email" name="email" class="form-control" placeholder="Nhập email người phỏng vấn" value="{{ $value->email }}" required>
             </div>
         </div>
         <!-- /.card-body -->

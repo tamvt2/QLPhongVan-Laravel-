@@ -6,7 +6,7 @@
             <tr>
                 <th style="width: 50px">ID</th>
                 <th>Tên</th>
-                <th>Chức Vụ</th>
+                <th>Email</th>
                 <th style="width: 100px">&nbsp</th>
             </tr>
         </thead>
@@ -15,7 +15,7 @@
                 <tr>
                     <td>{{ $value->id }}</td>
                     <td>{{ $value->name }}</td>
-                    <td>{{ $value->job }}</td>
+                    <td>{{ $value->email }}</td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="/users/interview/edit/{{ $value->id }}">
                             <i class="fas fa-edit"></i>

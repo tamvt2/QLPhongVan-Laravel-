@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('setups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('interview_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('candidate_id')->constrained();
         });
     }

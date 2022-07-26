@@ -12,8 +12,12 @@
                 <input type="text" name="name" class="form-control" placeholder="Nhập tên người phỏng vấn">
             </div>
             <div class="form-group">
-                <label>Chức Vụ Người Phỏng Vấn</label>
-                <input type="text" name="job" class="form-control" placeholder="Nhập chức vụ người phỏng vấn">
+                <label>Email Người Phỏng Vấn</label>
+                <input type="text" name="email" class="form-control" placeholder="Nhập email người phỏng vấn">
+            </div>
+            <div class="form-group">
+                <label>Mật khẩu đăng nhập</label>
+                <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu đăng nhập">
             </div>
         </div>
         <!-- /.card-body -->

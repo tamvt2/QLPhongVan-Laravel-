@@ -4,6 +4,7 @@ namespace App\Http\Controllers\interview;
 
 use App\Http\Controllers\Controller;
 use App\Models\Interview;
+use App\Models\User;
 use App\Services\interview\InterviewService;
 use Illuminate\Http\Request;
 
@@ -33,20 +34,20 @@ class InterviewerController extends Controller
         return redirect()->back();
     }
 
-    public function show(Interview $interview) {
+    public function show(User $user) {
         // dd($interview);
         return view('interview.edit', [
             'title' => 'Chỉnh Sửa Người Phỏng Vấn',
-            'value' => $interview
+            'value' => $user
         ]);
     }
 
-    public function update(Request $request, Interview $interview) {
+    public function update(Request $request, USer $user) {
         $this->validate($request, [
             'name' => 'required',
-            'job' => 'required'
+            'email' => 'required'
         ]);
-        $result = $this->interview->update($request, $interview);
+        $result = $this->interview->update($request, $user);
         if ($result) {
             return redirect('/users/interview/list');
         }
