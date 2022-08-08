@@ -65,6 +65,7 @@ function question() {
     });
 }
 
+
 $('#candidate').change(function() {
     question();
 });

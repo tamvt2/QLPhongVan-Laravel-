@@ -10,7 +10,7 @@ class Setups extends Model
     use HasFactory;
 
     protected $fillable = [
-        'interview_id',
+        'user_id',
         'candidate_id'
     ];
 

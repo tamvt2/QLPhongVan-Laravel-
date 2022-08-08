@@ -23,7 +23,7 @@ class SetupquestionController extends Controller
     public function index() {
         return view('setupquestion.add', [
             'title' => 'Setup Question',
-            'interviews' => $this->interview->getAll(),
+            'users' => $this->interview->getAll(),
             'candidates' => $this->candidate->getAll()
         ]);
     }

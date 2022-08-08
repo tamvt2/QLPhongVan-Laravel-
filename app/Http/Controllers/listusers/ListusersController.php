@@ -26,9 +26,13 @@ class ListusersController extends Controller
 
     public function show($id) {
         $result = $this->setup->load($id);
-        return view('listusers.add', [
-            'title' => 'Phỏng Vấn',
-            'values' => $result
+        // return view('listusers.add', [
+        //     'title' => 'Phỏng Vấn',
+        //     'values' => $result
+        // ]);
+        return response()->json([
+            'data' => $result,
+            'message' => 'success'
         ]);
     }
 

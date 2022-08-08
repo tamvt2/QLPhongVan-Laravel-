@@ -14,7 +14,7 @@ class SetUpService {
     public function create($request) {
         try {
             Setups::create([
-                'interview_id' => $request->input('interview_id'),
+                'user_id' => $request->input('user_id'),
                 'candidate_id' => $request->input('candidate_id')
             ]);
             $values = Setups::select('id')->orderBy('id', 'asc')->get();
@@ -41,13 +41,13 @@ class SetUpService {
 
     public function load($id) {
         return question_id_in_setup::select(
-            'question_id_in_setups.id as id', 'interviews.name as interview_name',
-            'interviews.id as interview_id','candidates.id as candidate_id',
+            'question_id_in_setups.id as id', 'users.name as interview_name',
+            'users.id as interview_id','candidates.id as candidate_id',
             'candidates.name as candidate_name', 'categories.id as category_id',
             'categories.category as category_name', 'questions.id as question_id',
             'questions.question as question_question')
         ->join('setups', 'setups.id', '=', 'question_id_in_setups.setup_id')
-        ->join('interviews', 'interviews.id', '=', 'setups.interview_id')
+        ->join('users', 'users.id', '=', 'setups.user_id')
         ->join('candidates', 'candidates.id', '=', 'setups.candidate_id')
         ->join('i_d_s', 'i_d_s.id', '=', 'question_id_in_setups.i_d_s_id')
         ->join('questions', 'questions.id', '=', 'i_d_s.question_id')

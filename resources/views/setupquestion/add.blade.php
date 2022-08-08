@@ -9,10 +9,10 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Người Phỏng Vấn</label>
-                <select name="interview_id" class="form-control">
+                <select name="user_id" class="form-control">
                     <option value="0">Tên Người Phỏng Vấn</option>
-                    @foreach($interviews as $key => $interview)
-                        <option value="{{ $interview->id }}">{{ $interview->name }}</option>
+                    @foreach($users as $key => $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
             </div>

@@ -4,7 +4,6 @@ use App\Http\Controllers\candidate\CandidateController;
 use App\Http\Controllers\category\CategoryController;
 use App\Http\Controllers\interview\InterviewerController;
 use App\Http\Controllers\listusers\ListusersController;
-use App\Http\Controllers\MainController;
 use App\Http\Controllers\question\QuestionController;
 use App\Http\Controllers\setupquestion\SetupquestionController;
 use App\Http\Controllers\Users\LoginController;
