@@ -48,7 +48,29 @@
                         </li>
                     </ul>
                 </li>
-
+				<li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-diagnoses"></i>
+                        <p>
+                            Thể Loại
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/users/category/add" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm Thể Loại</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/users/category/list" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh Sách Thể Loại</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-users"></i>
@@ -72,31 +94,6 @@
                         </li>
                     </ul>
                 </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-diagnoses"></i>
-                        <p>
-                            Thể Loại
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/users/category/add" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm Thể Loại</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/users/category/list" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh Sách Thể Loại</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-question"></i>

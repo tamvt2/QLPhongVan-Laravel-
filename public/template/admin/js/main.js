@@ -44,6 +44,8 @@ $('#upload').change(function() {
     });
 });
 
+let array = [];
+
 function question() {
     const val = $('#candidate :selected').attr('name');
     $('#category').val(val);
@@ -54,17 +56,19 @@ function question() {
         },
         url: '/users/setup/add',
         success: function(results) {
-            for (var j = 0; j < results.length; j++) {
-                $('.question').append(`
-                    <option value = "${results[j].id}" >
-                        ${results[j].question} 
-                    </option>
-                `);
+            array = results;
+            if (array) {
+                for (var j = 0; j < array.length; j++) {
+                    $('.question').append(` 
+						<option value = "${array[j].id}" >
+							${ array[j].question }
+						</option>
+					`);
+                }
             }
         }
     });
 }
-
 
 $('#candidate').change(function() {
     question();
@@ -72,17 +76,25 @@ $('#candidate').change(function() {
 
 var n = 6;
 $('.add-question').on('click', function() {
-    $('.add-question').before(`
-        <div class="form-group" id="remove${n}">
-            <label>Câu ${n}</label>
-            <i class="fas fa-trash ml-3" onclick="remove(this)"></i>
-            <select name="question_id_${n}" class="form-control question">
-                <option value="0">Câu Hỏi</option>
-            </select>
-        </div>
-    `);
+    $('.add-question').before(` 
+		<div class="form-group" id="remove${n}">
+			<label>Câu ${n}</label>
+			<i class="fas fa-trash ml-3" onclick="remove(this)"></i>
+			<select name="question_id_${n}" class="form-control questions">
+				<option value="0">Câu Hỏi</option>
+			</select>
+		</div>
+	`);
 
-    question();
+    if (array) {
+        for (var j = 0; j < array.length; j++) {
+            $('.questions').append(`
+    			<option value = "${array[j].id}" >
+    				${ array[j].question }
+    			</option>
+    		`);
+        }
+    }
     if (n == 10) {
         $('.add-question').empty();
     }
@@ -91,13 +103,15 @@ $('.add-question').on('click', function() {
 
 function remove(e) {
     var id = $(e).parent().attr('id');
-    $(`#${id}`).empty();
+    $(`#
+                $ { id }
+                `).empty();
 }
 
 var pageURL = $(location).attr("href");
-console.log(pageURL);
 for (var i = 1; i <= 20; i++) {
-    if (pageURL == `http://127.0.0.1:8000/users/listusers/add/${i}`) {
+    if (pageURL == `
+                http: //127.0.0.1:8000/users/listusers/add/${i}`) {
         for (var j = 1; j < 11; j++) {
             console.log($(`.question_id_${j} :selected`).val());
             if ($(`.question_id_${j} :selected`).val() == '') {
